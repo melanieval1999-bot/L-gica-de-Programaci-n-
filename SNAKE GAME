@@ -1,0 +1,66 @@
+import curses
+from random import randint
+
+# setup window
+curses.initscr()
+win = curses.newwin(30, 90, 0, 0) # y,x
+win.keypad(1)
+curses.noecho()
+curses.curs_set(0)
+win.border(0)
+
+ESC = 27
+
+# ---------- PANTALLA DE INICIO ----------
+win.nodelay(0)  # modo bloqueante para esperar la tecla
+
+while True:
+    win.clear()
+    win.border(0)
+    win.addstr(10, 25, "JUEGO DE LA SERPIENTE")
+    win.addstr(12, 20, "Presiona ENTER para iniciar la partida")
+    win.addstr(14, 23, "Presiona ESC para salir")
+    win.refresh()
+
+    key_start = win.getch()
+    if key_start in [10, 13]:  # ENTER (según sistema puede ser 10 o 13)
+        break
+    if key_start == ESC:
+        curses.endwin()
+        exit()
+
+# ---------- BUCLE DE PARTIDAS ----------
+while True:
+    win.nodelay(1)
+
+    # snake and food
+    # (cabeza a la derecha para que no se pise al moverse)
+    snake = [(3,13), (3,12), (3,11)]
+    food = (10,20)
+
+    win.clear()
+    win.border(0)
+    win.addch(food[0], food[1], '#')
+
+    # game logic 
+    score = 0
+    key = curses.KEY_RIGHT
+    perdio = False
+
+    # ---------- BUCLE PRINCIPAL DEL JUEGO ----------
+    while True:
+        win.addstr(0, 2, 'Score ' + str(score) + ' ')
+        win.timeout(150 - (len(snake)) // 5 + len(snake)//10 % 120) # increase speed 
+
+        prev_key  = key
+        event = win.getch()
+        key = event if event != -1 else prev_key
+
+        # salir directamente si presiona ESC durante la partida
+        if key == ESC:
+            curses.endwin()
+            print(f"Final score = {score}")
+            exit()
+
+        if key not in [curses.KEY_LEFT, curses.KEY_RIGHT, curses.KEY_UP, curses.KEY_DOWN, ESC]:
+            key = prev_key
