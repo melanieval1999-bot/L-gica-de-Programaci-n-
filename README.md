@@ -1,6 +1,9 @@
 Tema del proyecto: SNAKE GAME 
+
 Objetivo: Desarrollar y presentar el software Snake Game como un producto informático funcional y escalable, demostrando la correcta aplicación de las herramientas aprendidas en clase para demostrar su usabilidad y potencial de adaptación para compradores o instituciones interesadas en soluciones digitales educativas y de entretenimiento.
+
 Introducción: En el marco del proceso de selección y evaluación de software, y aplicando las herramientas estudiadas durante el curso: entre ellas análisis de requerimientos, diagramas de flujo, depuración, pruebas y documentación técnica presento el proyecto “Snake Game”, un programa desarrollado en Python que representa una solución lúdica, accesible y adaptable a diferentes contextos educativos y de entretenimiento digital. El propósito de este trabajo es demostrar cómo, a partir de principios fundamentales de la programación estructurada y del diseño de interfaces textuales, es posible construir un producto informático funcional, atractivo y escalable. El Snake Game integra elementos esenciales: uso de la librería curses para la construcción de interfaces interactivas, manejo de bucles, condiciones, listas dinámicas, control de eventos del teclado y gestión de estados, permitiendo así una experiencia de usuario fluida y coherente. 
+
 Funcionalidades del juego: 
 - Pantalla de inicio interactiva:
     Muestra un menú inicial con el título “JUEGO DE LA SERPIENTE”.
@@ -39,5 +42,6 @@ Funcionalidades del juego:
     Finaliza la ventana de curses con curses.endwin().
     Imprime en consola el puntaje final.
     Termina la ejecución del programa con exit().
+  
 Explicación del software: El Snake Game es un programa desarrollado en Python que utiliza la librería curses para crear una interfaz interactiva en la consola. El juego inicia con una pantalla de bienvenida donde el usuario decide si quiere comenzar una partida o salir. Una vez iniciada la partida, el jugador controla una serpiente que se desplaza por la ventana de juego utilizando las flechas del teclado. La serpiente debe comer la comida representada por el símbolo #, lo que aumenta su longitud y el puntaje del jugador.
 Internamente, la serpiente se gestiona mediante una lista de coordenadas que se actualiza en cada ciclo del bucle principal. El software utiliza condiciones para detectar colisiones tanto con los bordes de la ventana como con el propio cuerpo de la serpiente. Cuando ocurre una colisión, se muestra una pantalla de “GAME OVER” donde el usuario puede elegir entre volver a jugar o salir del programa. En conjunto, el software integra manejo de bucles, condiciones, listas dinámicas, control de teclado y gestión de estados, lo que lo convierte en un ejemplo completo de aplicación interactiva en consola.
